@@ -21,6 +21,9 @@ build:
 test:
 	$(GOTEST) -v ./...
 
+push:
+	git push -u origin main
+
 clean:
 	$(GOCLEAN)
 	rm -f $(BINARY_NAME)
@@ -45,5 +48,5 @@ build-mac:
 docker-build:
 	docker build -t $(BINARY_NAME) .
 
-.PHONY: all build test clean run deps build-linux build-windows build-mac docker-build
+.PHONY: all build test push clean run deps build-linux build-windows build-mac docker-build
 
